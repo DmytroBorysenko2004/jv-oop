@@ -1,0 +1,58 @@
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        enum Color {
+            Red,
+            Green,
+            Blue,
+            Yellow,
+            Orange,
+            Purple,
+            Black,
+            White,
+        }
+        class ColorSupplier {
+            public Color getRandomColor() {
+                Color[] color = Color.values();
+                Random random = new Random();
+                return color[random.nextInt(color.length)];
+            }
+        }
+        class Ball {
+            int number;
+            Color color;
+
+            public Ball(int number, Color color) {
+                this.number = number;
+                this.color = color;
+            }
+
+
+            public String toString() {
+                return "Ball" + color + number;
+            }
+
+
+//TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+            // to see how IntelliJ IDEA suggests fixing it.
+
+        }
+        class Lottery {
+            public Ball getRandomBall() {
+                int randomN =new  Random().nextInt(100);
+                ColorSupplier colorSupplier = new ColorSupplier();
+                Color color = colorSupplier.getRandomColor();
+                Ball ball = new Ball(randomN, color);
+                return ball;
+            }
+        }
+        Lottery lottery = new Lottery();
+        Ball randomBall1 = lottery.getRandomBall();
+        Ball randomBall2 = lottery.getRandomBall();
+        Ball randomBall3 = lottery.getRandomBall();
+        System.out.println(randomBall1);
+        System.out.println(randomBall2);
+        System.out.println(randomBall3);
+    }
+}
