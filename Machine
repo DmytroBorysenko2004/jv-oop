@@ -1,0 +1,42 @@
+abstract class Machine {
+    public abstract void doWork();
+
+    public abstract void stopWork();
+}
+    class Truck extends Machine {
+        public void doWork() {
+            System.out.println("The Truck started working.");
+        }
+
+        public void stopWork() {
+            System.out.println("The Truck stopped working.");
+        }
+    }
+class Buldozer extends Machine {
+    public void doWork() {
+        System.out.println("The Buldozer started working.");
+    }
+
+    public void stopWork() {
+        System.out.println("The Buldozer stopped working.");
+    }
+}
+
+class Excavator extends Machine {
+    public void doWork() {
+        System.out.println("The Excavator started working.");
+    }
+
+    public void stopWork() {
+        System.out.println("The Excavator stopped working.");
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Machine[] machines = {new Truck(), new Buldozer(), new Excavator()};
+        for (int i = 0; i < machines.length; i++) {
+            machines[i].doWork();
+            machines[i].stopWork();
+        }
+    }
+}
